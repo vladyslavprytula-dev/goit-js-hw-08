@@ -6,8 +6,7 @@ const refs = {
   button: document.querySelector('button[data-action="close-lightbox"]'),
   lightboxContent: document.querySelector("div.lightbox__content"),
 };
-console.log(refs.lightboxContent);
-let i = 0;
+let idCounter = 0;
 const createGalleryItem = (galleryItem) => {
   const li = document.createElement("li");
   li.classList.add("gallery__item");
@@ -15,9 +14,8 @@ const createGalleryItem = (galleryItem) => {
     "afterbegin",
     ` <img class="gallery__image" src="${galleryItem.preview}" data-source="${
       galleryItem.original
-    }" alt="${galleryItem.description}" id="${(i += 1)}"  />`
+    }" alt="${galleryItem.description}" id="${(idCounter += 1)}"  />`
   );
-
   return li;
 };
 const addImgtoCard = (galleryItems) => {
